@@ -5,7 +5,7 @@ import { configDotenv } from "dotenv";
 import authFuncs from './controllers/authCtrl.js'
 
 configDotenv()
-const {PORT} = process.env
+const PORT = process.env.PORT || 4545
 
 const app = express()
 
