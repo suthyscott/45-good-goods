@@ -8,6 +8,12 @@ import { User } from './models/user.js';
 import { Product } from './models/product.js';
 import { Cart } from './models/cart.js';
 
+User.hasMany(Cart)
+Cart.belongsTo(User)
+
+Product.hasMany(Cart)
+Cart.belongsTo(Product)
+
 configDotenv()
 const PORT = process.env.PORT || 4545
 
@@ -24,7 +30,7 @@ app.post('/api/products')
 app.put('/api/products')
 app.delete('/api/products')
 
-sequelize.sync({force: true})
+sequelize.sync()
     .then(() => {
         app.listen(PORT, console.log(`Take us to warp 4545!`))
     })
