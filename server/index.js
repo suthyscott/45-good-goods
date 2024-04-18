@@ -3,6 +3,7 @@ import cors  from 'cors'
 import { configDotenv } from "dotenv";
 
 import authFuncs from './controllers/authCtrl.js'
+// import { isAuthenticated } from './isAuthenticated/isAuthenticated.js';
 import sequelize from './util/database.js';
 import { User } from './models/user.js';
 import { Product } from './models/product.js';
@@ -25,7 +26,7 @@ app.use(cors())
 app.post('/api/register', authFuncs.register)
 app.post('/api/login', authFuncs.login)
 
-app.get('/api/products')
+// app.get('/api/products', isAuthenticated, getProducts)
 app.post('/api/products')
 app.put('/api/products')
 app.delete('/api/products')
